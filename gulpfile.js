@@ -23,12 +23,11 @@ function compilaSass(){
     .pipe(gulp.dest('./build/styles'));
 }
 
-function beta(cb){
-    console.log("Initial gulp");
-    cb();
-}
+exports.default = function(){
+    gulp. watch('.source/styles/*.scss', { ignoreInitial: false }, gulp.series(compilaSass));
 
-exports.default = beta;
-exports.sass = compilaSass;
-exports.javaScript = comprimeJavaScript;
-exports.images = comprimeImage;
+    gulp. watch('./source/scripts/*.js', { ignoreInitial: false }, gulp.series(comprimeJavaScript));
+
+    gulp. watch('./source/images/*', { ignoreInitial: false }, gulp.series(comprimeImage));
+
+}
