@@ -23,6 +23,12 @@ function compilaSass(){
     .pipe(gulp.dest('./build/styles'));
 }
 
+function beta(cb){
+    console.log("Initial gulp");
+    cb();
+}
+
+exports.default = beta;
 exports.sass = compilaSass;
 exports.javaScript = comprimeJavaScript;
 exports.images = comprimeImage;
